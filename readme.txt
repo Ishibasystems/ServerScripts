@@ -1,3 +1,5 @@
+動作にはFreeBSD jailの名前にtweepyが入っている&中にtweepyがあること必須です
+
 ・CPUの動作周波数とCPU温度をtweet
 ・S.M.A.R.T.によるHDD温度をtweet
 
@@ -9,4 +11,4 @@
   server_tweet.sh	tweepyにtweetさせたりFreeBSD jailのJIDを確認したり。
   server_cron.sh	cronに登録しているスクリプト(status.sh→server_tweet.shパイプ)
 
-※起動時に実行するスクリプト(起動をtweetする)はtweepyのjail中のrc.dに設定されています
+※起動時に実行するスクリプト(起動をtweetする)はtweepyのjail中のrc.dに設定します

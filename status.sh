@@ -1,11 +1,11 @@
 #!/bin/sh
 
-echo -n "CPU周波数: "
+echo -n CPU周波数:
 set -f
 set -- `sysctl dev.cpu.0.freq`
-echo "$2""MHz"
+echo " $2MHz"
 
-echo -n "CPU温度:"
+echo -n CPU温度:
 set -- `sysctl kern.smp.cpus`
 for cnt in `seq 0 \`expr $2 - 1\``
 do
