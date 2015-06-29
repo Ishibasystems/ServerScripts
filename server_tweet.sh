@@ -1,5 +1,6 @@
 #!/bin/sh
 
+# tweet
 tweet=`cat /dev/stdin`
 line=`cat /mnt/tank/server/log.txt`
 
@@ -7,6 +8,7 @@ line='jexec '$line' /mnt/tweepy/server_tweet.py > /dev/null 2>&1'
 echo "$tweet" | eval $line
 ret=$?
 
+# JID再取得
 if test ${ret} -eq 1 ; then
   set -f
   set -- `jls | grep tweepy`
@@ -15,6 +17,7 @@ if test ${ret} -eq 1 ; then
 
   echo $line > /mnt/tank/server/log.txt
 
+  # 再tweet
   if test "$line" ; then
     ifconfig -l | xargs -n 1 -J % ifconfig % up
     line='jexec '$line' /mnt/tweepy/server_tweet.py'
