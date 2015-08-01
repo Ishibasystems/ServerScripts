@@ -9,7 +9,7 @@ line=`zpool status tank`
 # zpoolステータス - スクラブ状況
 echo "$line" | grep "scan: scrub in" > /dev/null 2>&1
 if test $? -eq 0 ; then
-  echo "$line" | /mnt/tank/server/zpool_resilver.sh | /mnt/tank/server/server_tweet.sh
+  echo "$line" | /mnt/tank/server/zpool_scrub.sh | /mnt/tank/server/server_tweet.sh
 fi
 
 # zpoolステータス - 再構築状況
